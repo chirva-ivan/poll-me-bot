@@ -17,4 +17,8 @@ public class Converter {
             throw error;
         }
     }
+
+    public String stringify(Object object) throws JsonProcessingException {
+        return mapper.writeValueAsString(object);
+    }
 }

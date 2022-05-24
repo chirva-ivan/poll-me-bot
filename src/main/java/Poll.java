@@ -1,3 +1,5 @@
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 public class Poll {
@@ -57,6 +59,22 @@ public class Poll {
         this.completed = completed;
     }
 
+    public void setVoters(Set<String> voters) {
+        this.voters = voters;
+    }
+
+    public Set<String> getVoters() {
+        return voters;
+    }
+
+    public void addVoter(String userId) {
+        voters.add(userId);
+    }
+
+    public boolean hasVoter(String userId) {
+        return voters.contains(userId);
+    }
+
     private UUID id = UUID.randomUUID();
     private String text;
     private String author;
@@ -64,9 +82,12 @@ public class Poll {
     private int yes;
     private int no;
     private boolean completed;
+    private Set<String> voters = new HashSet<>();
 
     @Override
     public String toString() {
         return text;
     }
+
+
 }
